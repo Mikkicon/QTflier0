@@ -30,7 +30,7 @@ void MainWindow::on_start_clicked()
 
         ui->start->setText("STOP");
         QProcess *process = new QProcess(this);
-        QString file = ui->pathInput->text().isEmpty()? "C:/Users/USER/Desktop/C++/fgfs.exe" :ui->pathInput->text();
+        QString file = ui->pathInput->text().isEmpty()? "C:/Users/USER/Desktop/C++/QTflier0/fgfs.exe" :ui->pathInput->text();
         try {
             QStringList arguments;
             arguments<< "--generic=socket,out,"+ui->frInput->text() +","+ui->halIpInput->text()+","+ui->halPortInput->text()+",udp,"+ui->trProtInput->text()<<
