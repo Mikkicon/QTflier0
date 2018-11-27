@@ -4,6 +4,7 @@
 #include <QDir>
 #include <QDebug>
 #include <stdlib.h>
+#include <string>
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
@@ -43,7 +44,11 @@ void MainWindow::on_start_clicked()
 
             process->waitForReadyRead();
             QString s = process->readAll();
-            ui->fgConsoleOutput->append(s);
+            int x = s.indexOf("FG");
+            QString s1 = s.mid(x,s.length()-x-1);
+            x = s.indexOf("FG");
+            s = s.mid(0,x);
+            ui->fgConsoleOutput->append(s1);
             ui->halConsoleOutput->append(s);
     }
 }
